@@ -23,15 +23,15 @@ const QuestionCard: React.FC<QuestionProps> = ({
     return (
         <div className="flex flex-col items-center">
             {/* Question Card */}
-            <div className="question-card bg-white p-12 rounded-lg shadow-lg w-3/4 md:w-2/3 lg:w-1/2 mx-auto mb-4">
+            <div className="question-card bg-white h-80 w-100 p-6 rounded-lg shadow-lg flex flex-col justify-between">
                 {/* Question Section */}
-                <div className="mb-6">
-                    <h2 className="text-2xl font-bold mb-6 text-center">{question}</h2>
+                <div>
+                    <h2 className="text-xl font-bold mb-4 text-center">{question}</h2>
                     {isAnswerRevealed ? (
                         <p className="text-green-600 font-semibold text-center">{answer}</p>
                     ) : (
                         <button
-                            className="bg-blue-500 text-white px-6 py-3 rounded hover:bg-blue-600 block mx-auto"
+                            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 block mx-auto"
                             onClick={onRevealAnswer}
                         >
                             Reveal Answer

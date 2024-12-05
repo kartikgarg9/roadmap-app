@@ -27,46 +27,32 @@ const QuizApp: React.FC = () => {
     node: { knew: 0, learnt: 0, skipped: 0 },
   });
 
-  // Fetch questions based on category
+  const [isQuizOver, setIsQuizOver] = useState(false);
+
   useEffect(() => {
-    if (category) {
-      const fetchedQuestions = fetchQuestionsByCategory(category);
-      setQuestions(fetchedQuestions);
-      setRevealedAnswers(new Array(fetchedQuestions.length).fill(false));
-    }
+    const fetchQuestions = async () => {
+      if (category) {
+        try {
+          const response = await fetch("/question.json");
+          const data = await response.json();
+          const fetchedQuestions = data[category] || [];
+          setQuestions(fetchedQuestions);
+          setRevealedAnswers(new Array(fetchedQuestions.length).fill(false));
+          setIsQuizOver(false);
+        } catch (error) {
+          console.error("Failed to fetch questions:", error);
+        }
+      }
+    };
+
+    fetchQuestions();
   }, [category]);
 
-  const fetchQuestionsByCategory = (category: string): Question[] => {
-    switch (category) {
-      case "javascript":
-        return [
-          { question: "What is JavaScript?", answer: "JavaScript is a programming language." },
-          { question: "What is a function?", answer: "A function is a block of code that performs a specific task." },
-        ];
-      case "python":
-        return [
-          { question: "What is Python?", answer: "Python is a programming language." },
-          { question: "What is a list?", answer: "A list is a collection of items in Python." },
-        ];
-      case "react":
-        return [
-          { question: "What is React?", answer: "React is a JavaScript library for building user interfaces." },
-          { question: "What is a component?", answer: "A component is a reusable piece of UI in React." },
-        ];
-      case "node":
-        return [
-          { question: "What is Node.js?", answer: "Node.js is a JavaScript runtime environment." },
-          { question: "What is npm?", answer: "npm is the Node.js package manager." },
-        ];
-      default:
-        return [];
-    }
-  };
+
 
   const handleAction = (type: "knew" | "learnt" | "skipped") => {
     if (!category) return;
 
-    // Update progress for the current category
     setProgress((prev) => ({
       ...prev,
       [category]: {
@@ -75,8 +61,11 @@ const QuizApp: React.FC = () => {
       },
     }));
 
-    // Move to the next question
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % questions.length);
+    if (currentIndex < questions.length - 1) {
+      setCurrentIndex((prevIndex) => prevIndex + 1);
+    } else {
+      setIsQuizOver(true);
+    }
   };
 
   const revealAnswer = () => {
@@ -85,7 +74,6 @@ const QuizApp: React.FC = () => {
     setRevealedAnswers(updatedAnswers);
   };
 
-  // Reset function to clear progress and reset quiz
   const resetQuiz = () => {
     setProgress({
       javascript: { knew: 0, learnt: 0, skipped: 0 },
@@ -95,36 +83,47 @@ const QuizApp: React.FC = () => {
     });
     setCurrentIndex(0);
     setRevealedAnswers(new Array(questions.length).fill(false));
+    setIsQuizOver(false);
   };
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-6">
-      {/* Quiz Progress */}
-      {category && (
-        <QuizProgress
-          knew={progress[category]?.knew || 0}
-          learnt={progress[category]?.learnt || 0}
-          skipped={progress[category]?.skipped || 0}
-          total={questions.length}
-          category={category}
-          onReset={resetQuiz} // Pass resetQuiz function as prop
-        />
-      )}
-
-      {/* Question Card */}
-      {questions.length > 0 && (
-        <div className="mt-8 w-full flex justify-center">
-          <QuestionCard
-            question={questions[currentIndex].question}
-            answer={questions[currentIndex].answer}
-            isAnswerRevealed={revealedAnswers[currentIndex]}
-            onRevealAnswer={revealAnswer}
-            onSkip={() => handleAction("skipped")}
-            onKnow={() => handleAction("knew")}
-            onDontKnow={() => handleAction("learnt")}
+      <div className="flex w-full max-w-3xl flex-col items-center space-y-6">
+        {/* Quiz Progress */}
+        {category && (
+          <QuizProgress
+            knew={progress[category]?.knew || 0}
+            learnt={progress[category]?.learnt || 0}
+            skipped={progress[category]?.skipped || 0}
+            total={questions.length}
+            category={category}
+            onReset={resetQuiz}
+            isQuizOver={isQuizOver}
           />
-        </div>
-      )}
+        )}
+
+        {/* Question Card */}
+        {questions.length > 0 && !isQuizOver && (
+          <div className="w-full flex justify-center">
+            <QuestionCard
+              question={questions[currentIndex].question}
+              answer={questions[currentIndex].answer}
+              isAnswerRevealed={revealedAnswers[currentIndex]}
+              onRevealAnswer={revealAnswer}
+              onSkip={() => handleAction("skipped")}
+              onKnow={() => handleAction("knew")}
+              onDontKnow={() => handleAction("learnt")}
+            />
+          </div>
+        )}
+
+        {/* Display a message if the quiz is over */}
+        {isQuizOver && (
+          <div className="mt-8 text-xl font-bold text-green-600">
+            You have completed all the questions!
+          </div>
+        )}
+      </div>
     </div>
   );
 };
