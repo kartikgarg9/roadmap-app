@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "antd";
+import { FaCheckCircle, FaTimesCircle, FaForward } from "react-icons/fa";
 
 type ActionButtonsProps = {
     onSkip: () => void;
@@ -9,28 +9,33 @@ type ActionButtonsProps = {
 
 const ActionButtons: React.FC<ActionButtonsProps> = ({ onSkip, onKnow, onDontKnow }) => {
     return (
-        <div className="flex justify-between gap-4 mt-6">
-            <Button
-                type="primary"
+        <div className="flex justify-center gap-4 mt-6">
+            {/* Already Know That */}
+            <button
                 onClick={onKnow}
-                style={{ backgroundColor: "#4CAF50", borderColor: "#4CAF50", flex: 1 }}
+                className="flex items-center gap-2 px-6 py-3 bg-white text-gray-700 border border-gray-300 rounded-lg hover:bg-green-100 hover:border-green-500 transition focus:outline-none"
             >
+                <FaCheckCircle className="text-green-500" />
                 Already Know That
-            </Button>
-            <Button
-                type="primary"
+            </button>
+
+            {/* Didn't Know That */}
+            <button
                 onClick={onDontKnow}
-                style={{ backgroundColor: "#f44336", borderColor: "#f44336", flex: 1 }}
+                className="flex items-center gap-2 px-6 py-3 bg-white text-gray-700 border border-gray-300 rounded-lg hover:bg-red-100 hover:border-red-500 transition focus:outline-none"
             >
+                <FaTimesCircle className="text-red-500" />
                 Didn't Know That
-            </Button>
-            <Button
-                type="default"
+            </button>
+
+            {/* Skip Question */}
+            <button
                 onClick={onSkip}
-                style={{ backgroundColor: "#9e9e9e", borderColor: "#9e9e9e", flex: 1 }}
+                className="flex items-center gap-2 px-6 py-3 bg-white text-gray-700 border border-gray-300 rounded-lg hover:bg-gray-100 hover:border-gray-500 transition focus:outline-none"
             >
+                <FaForward className="text-gray-500" />
                 Skip Question
-            </Button>
+            </button>
         </div>
     );
 };

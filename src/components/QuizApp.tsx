@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom"; // Import Link
 import QuizProgress from "../components/QuizProgress";
 import QuestionCard from "../components/QuestionCard";
 
@@ -48,8 +48,6 @@ const QuizApp: React.FC = () => {
     fetchQuestions();
   }, [category]);
 
-
-
   const handleAction = (type: "knew" | "learnt" | "skipped") => {
     if (!category) return;
 
@@ -89,6 +87,16 @@ const QuizApp: React.FC = () => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-6">
       <div className="flex w-full max-w-3xl flex-col items-center space-y-6">
+        {/* Back to Categories Link */}
+        <div className="w-full flex justify-start mb-4">
+          <Link
+            to="/home"
+            className="text-blue-500 hover:underline text-lg flex items-center"
+          >
+            {"<"} Back to Categories
+          </Link>
+        </div>
+
         {/* Quiz Progress */}
         {category && (
           <QuizProgress

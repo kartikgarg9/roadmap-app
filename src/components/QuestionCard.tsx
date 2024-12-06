@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import ActionButtons from "./ActionsButton";
 
 type QuestionProps = {
@@ -21,24 +22,44 @@ const QuestionCard: React.FC<QuestionProps> = ({
     onDontKnow,
 }) => {
     return (
-        <div className="flex flex-col items-center">
+        <motion.div
+            className="flex flex-col items-center"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+        >
             {/* Question Card */}
-            <div className="question-card bg-white h-80 w-100 p-6 rounded-lg shadow-lg flex flex-col justify-between">
+            <motion.div
+                className="question-card bg-white h-[250px] w-[600px] p-6 rounded-lg shadow-lg flex flex-col"
+                initial={{ y: -50 }}
+                animate={{ y: 0 }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+            >
                 {/* Question Section */}
-                <div>
+                <div className="flex-grow">
                     <h2 className="text-xl font-bold mb-4 text-center">{question}</h2>
-                    {isAnswerRevealed ? (
-                        <p className="text-green-600 font-semibold text-center">{answer}</p>
-                    ) : (
-                        <button
-                            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 block mx-auto"
-                            onClick={onRevealAnswer}
+                    {isAnswerRevealed && (
+                        <motion.p
+                            className="text-green-600 font-semibold text-center"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ duration: 0.5 }}
                         >
-                            Reveal Answer
-                        </button>
+                            {answer}
+                        </motion.p>
                     )}
                 </div>
-            </div>
+
+                {/* Reveal Answer Button */}
+                {!isAnswerRevealed && (
+                    <button
+                        className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 self-center mt-auto"
+                        onClick={onRevealAnswer}
+                    >
+                        Reveal Answer
+                    </button>
+                )}
+            </motion.div>
 
             {/* Action Buttons Section */}
             <div className="mt-4 text-center">
@@ -48,7 +69,7 @@ const QuestionCard: React.FC<QuestionProps> = ({
                     onDontKnow={onDontKnow}
                 />
             </div>
-        </div>
+        </motion.div>
     );
 };
 

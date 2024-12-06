@@ -1,19 +1,17 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
 
 const Header: React.FC = () => {
     return (
-        <header className="bg-gray-800 text-white p-4 sticky top-0">
-            <div className="container mx-auto">
-                <h2 className="text-2xl font-bold mb-4">Quiz Categories</h2>
-                <div className="overflow-x-auto whitespace-nowrap">
-                    <ul className="flex space-x-8">
-                        <li><Link to="/quiz/javascript" className="text-lg hover:underline">JavaScript</Link></li>
-                        <li><Link to="/quiz/python" className="text-lg hover:underline">Python</Link></li>
-                        <li><Link to="/quiz/react" className="text-lg hover:underline">React</Link></li>
-                        <li><Link to="/quiz/node" className="text-lg hover:underline">Node</Link></li>
+        <header className="bg-gray-800 text-white p-4 sticky top-0 shadow-md">
+            <div className="container mx-auto flex justify-between items-center">
+                <h1 className="text-2xl font-bold">Quiz App</h1>
+                <nav>
+                    <ul className="flex space-x-4">
+                        <li><a href="/" className="hover:underline">Home</a></li>
+                        <li><a href="/about" className="hover:underline">About</a></li>
+                        <li><a href="/contact" className="hover:underline">Contact</a></li>
                     </ul>
-                </div>
+                </nav>
             </div>
         </header>
     );
