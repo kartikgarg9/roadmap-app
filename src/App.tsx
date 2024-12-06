@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
 
 import QuizApp from './components/QuizApp';
-import Login from './components/LoginPage';
+
 import QuizTopics from './components/QuizTopics';
 
 const App: React.FC = () => {
@@ -11,7 +11,7 @@ const App: React.FC = () => {
     <Router>
       <Header />
       <Routes>
-        <Route path="/" element={<Login />} />
+        <Route path="/" element={<QuizTopics />} />
         <Route path="/home" element={<QuizTopics />} />
         <Route path="/quiz/:category" element={<QuizApp />} />
       </Routes>
