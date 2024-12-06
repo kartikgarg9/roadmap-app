@@ -1,12 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import ActionButtons from "./ActionsButton";
 
 type QuestionProps = {
     question: string;
     answer: string;
-    isAnswerRevealed: boolean;
-    onRevealAnswer: () => void;
     onSkip: () => void;
     onKnow: () => void;
     onDontKnow: () => void;
@@ -15,12 +13,16 @@ type QuestionProps = {
 const QuestionCard: React.FC<QuestionProps> = ({
     question,
     answer,
-    isAnswerRevealed,
-    onRevealAnswer,
     onSkip,
     onKnow,
     onDontKnow,
 }) => {
+    const [isAnswerRevealed, setIsAnswerRevealed] = useState(false);
+
+    const toggleAnswerVisibility = () => {
+        setIsAnswerRevealed((prev) => !prev);
+    };
+
     return (
         <motion.div
             className="flex flex-col items-center"
@@ -29,37 +31,35 @@ const QuestionCard: React.FC<QuestionProps> = ({
             transition={{ duration: 0.5, ease: "easeOut" }}
         >
             {/* Question Card */}
-            <motion.div
-                className="question-card bg-white h-[250px] w-[600px] p-6 rounded-lg shadow-lg flex flex-col"
-                initial={{ y: -50 }}
-                animate={{ y: 0 }}
-                transition={{ duration: 0.5, ease: "easeOut" }}
-            >
+            <div className="relative bg-white h-[250px] w-[600px] p-6 rounded-lg shadow-lg overflow-hidden">
                 {/* Question Section */}
-                <div className="flex-grow">
-                    <h2 className="text-xl font-bold mb-4 text-center">{question}</h2>
-                    {isAnswerRevealed && (
-                        <motion.p
-                            className="text-green-600 font-semibold text-center"
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ duration: 0.5 }}
-                        >
-                            {answer}
-                        </motion.p>
-                    )}
-                </div>
+                <motion.div
+                    className="absolute top-4 left-0 right-0 text-center"
+                    initial={{ y: 0 }}
+                    animate={{ y: isAnswerRevealed ? "-100%" : "0%" }}
+                    transition={{ duration: 0.5, ease: "easeOut" }}
+                >
+                    <h2 className="text-xl font-bold">{question}</h2>
+                </motion.div>
 
-                {/* Reveal Answer Button */}
-                {!isAnswerRevealed && (
-                    <button
-                        className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 self-center mt-auto"
-                        onClick={onRevealAnswer}
-                    >
-                        Reveal Answer
-                    </button>
-                )}
-            </motion.div>
+                {/* Answer Section (Slides up) */}
+                <motion.div
+                    className="absolute inset-0 bg-green-100 flex items-center justify-center text-center p-6 rounded-lg"
+                    initial={{ y: "100%" }}
+                    animate={{ y: isAnswerRevealed ? "0%" : "100%" }}
+                    transition={{ duration: 0.5, ease: "easeOut" }}
+                >
+                    <p className="text-lg font-semibold text-green-600">{answer}</p>
+                </motion.div>
+
+                {/* Toggle Button */}
+                <button
+                    className="absolute bottom-4 left-1/2 transform -translate-x-1/2 px-4 py-2 bg-gray-800 text-white rounded hover:bg-gray-700"
+                    onClick={toggleAnswerVisibility}
+                >
+                    {isAnswerRevealed ? "Hide Answer" : "Reveal Answer"}
+                </button>
+            </div>
 
             {/* Action Buttons Section */}
             <div className="mt-4 text-center">

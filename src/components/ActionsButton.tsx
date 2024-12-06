@@ -10,7 +10,7 @@ type ActionButtonsProps = {
 const ActionButtons: React.FC<ActionButtonsProps> = ({ onSkip, onKnow, onDontKnow }) => {
     return (
         <div className="flex justify-center gap-4 mt-6">
-            {/* Already Know That */}
+
             <button
                 onClick={onKnow}
                 className="flex items-center gap-2 px-6 py-3 bg-white text-gray-700 border border-gray-300 rounded-lg hover:bg-green-100 hover:border-green-500 transition focus:outline-none"
@@ -19,7 +19,7 @@ const ActionButtons: React.FC<ActionButtonsProps> = ({ onSkip, onKnow, onDontKno
                 Already Know That
             </button>
 
-            {/* Didn't Know That */}
+
             <button
                 onClick={onDontKnow}
                 className="flex items-center gap-2 px-6 py-3 bg-white text-gray-700 border border-gray-300 rounded-lg hover:bg-red-100 hover:border-red-500 transition focus:outline-none"
@@ -28,7 +28,7 @@ const ActionButtons: React.FC<ActionButtonsProps> = ({ onSkip, onKnow, onDontKno
                 Didn't Know That
             </button>
 
-            {/* Skip Question */}
+
             <button
                 onClick={onSkip}
                 className="flex items-center gap-2 px-6 py-3 bg-white text-gray-700 border border-gray-300 rounded-lg hover:bg-gray-100 hover:border-gray-500 transition focus:outline-none"
