@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";  // Import Link
+import { useParams, Link } from "react-router-dom";
 import QuizProgress from "../components/QuizProgress";
 import QuestionCard from "../components/QuestionCard";
 import Confetti from "react-confetti";
@@ -26,8 +26,8 @@ const QuizApp: React.FC = () => {
     react: { knew: 0, learnt: 0, skipped: 0 },
     node: { knew: 0, learnt: 0, skipped: 0 },
   });
-
   const [isQuizOver, setIsQuizOver] = useState(false);
+  const [revealedAnswers, setRevealedAnswers] = useState<Record<number, boolean>>({});
 
   useEffect(() => {
     const fetchQuestions = async () => {
@@ -65,6 +65,13 @@ const QuizApp: React.FC = () => {
     }
   };
 
+  const toggleRevealAnswer = (index: number) => {
+    setRevealedAnswers((prev) => ({
+      ...prev,
+      [index]: !prev[index],
+    }));
+  };
+
   const resetQuiz = () => {
     setProgress({
       javascript: { knew: 0, learnt: 0, skipped: 0 },
@@ -74,22 +81,18 @@ const QuizApp: React.FC = () => {
     });
     setCurrentIndex(0);
     setIsQuizOver(false);
+    setRevealedAnswers({});
   };
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-6">
       <div className="flex w-full max-w-3xl flex-col items-center space-y-6">
-        {/* Back to Category Link */}
         <div className="w-full flex justify-start mb-1">
-          <Link
-            to="/home"
-            className="text-blue-500 hover:underline text-lg flex items-center"
-          >
+          <Link to="/home" className="text-blue-500 hover:underline text-lg flex items-center">
             {"<"} Back to Questions
           </Link>
         </div>
 
-        {/* Quiz Progress */}
         {category && (
           <QuizProgress
             knew={progress[category]?.knew || 0}
@@ -102,12 +105,13 @@ const QuizApp: React.FC = () => {
           />
         )}
 
-        {/* Question Card */}
         {questions.length > 0 && !isQuizOver && (
           <div className="w-full flex justify-center">
             <QuestionCard
               question={questions[currentIndex].question}
               answer={questions[currentIndex].answer}
+              isAnswerRevealed={!!revealedAnswers[currentIndex]}
+              onToggleAnswer={() => toggleRevealAnswer(currentIndex)}
               onSkip={() => handleAction("skipped")}
               onKnow={() => handleAction("knew")}
               onDontKnow={() => handleAction("learnt")}
@@ -115,7 +119,6 @@ const QuizApp: React.FC = () => {
           </div>
         )}
 
-        {/* Display a message if the quiz is over */}
         {isQuizOver && (
           <div className="mt-8 text-xl font-bold text-green-600">
             You have completed all the questions!
