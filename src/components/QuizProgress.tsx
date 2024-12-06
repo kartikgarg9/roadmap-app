@@ -29,7 +29,6 @@ const QuizProgress: React.FC<ProgressData> = ({ knew, learnt, skipped, total, ca
             <div className="max-w-xl bg-white p-6 rounded-lg shadow-md w-full">
                 <div className="mb-6">
                     <Progress
-
                         percent={progressPercent}
                         showInfo={false}
                         strokeColor={{
@@ -59,11 +58,21 @@ const QuizProgress: React.FC<ProgressData> = ({ knew, learnt, skipped, total, ca
                     </div>
                 </div>
 
-
-
+                {/* Display final summary at the end of the quiz */}
+                {isQuizOver && (
+                    <div className="mt-6 text-center">
+                        <h3 className="text-xl font-semibold">Quiz Completed!</h3>
+                        <p className="mt-2 text-lg">You've completed all questions.</p>
+                        <div className="mt-4 space-y-2 text-gray-700">
+                            <p>✅ Knew: <span className="font-semibold">{knew} Items</span></p>
+                            <p>🌟 Learnt: <span className="font-semibold">{learnt} Items</span></p>
+                            <p>⏭ Skipped: <span className="font-semibold">{skipped} Items</span></p>
+                            <p className="font-bold">Total Answered: {current} / {total}</p>
+                        </div>
+                    </div>
+                )}
             </div>
         </div>
-
     );
 };
 

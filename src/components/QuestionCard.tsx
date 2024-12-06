@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import ActionButtons from "./ActionsButton";
 
@@ -8,8 +8,6 @@ type QuestionProps = {
     onSkip: () => void;
     onKnow: () => void;
     onDontKnow: () => void;
-    isAnswerRevealed: boolean;  // Added prop for answer visibility
-    toggleAnswerVisibility: () => void;  // Added prop for toggling answer visibility
 };
 
 const QuestionCard: React.FC<QuestionProps> = ({
@@ -18,9 +16,15 @@ const QuestionCard: React.FC<QuestionProps> = ({
     onSkip,
     onKnow,
     onDontKnow,
-    isAnswerRevealed,
-    toggleAnswerVisibility,
 }) => {
+    // State to manage visibility of the answer for the current question
+    const [isAnswerRevealed, setIsAnswerRevealed] = useState(false);
+
+    // Toggle answer visibility when button is clicked
+    const toggleAnswerVisibility = () => {
+        setIsAnswerRevealed((prev) => !prev);
+    };
+
     return (
         <motion.div
             className="flex flex-col items-center"
