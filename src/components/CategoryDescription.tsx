@@ -7,8 +7,8 @@ type CategoryDescriptionProps = {
 const CategoryDescription: React.FC<CategoryDescriptionProps> = ({ category }) => {
     const categoryDescriptions: { [key: string]: string } = {
         javascript: "Test, rate and improve your JavaScript knowledge with these questions.",
-        python: "Sharpen your Python skills with these curated questions.",
-        java: "Enhance your Java expertise with challenging questions.",
+        react: "Sharpen your Python skills with these curated questions.",
+        nodejs: "Enhance your Java expertise with challenging questions.",
         html: "Strengthen your understanding of HTML with these questions.",
     };
 

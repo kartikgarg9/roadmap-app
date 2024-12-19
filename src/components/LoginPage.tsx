@@ -98,7 +98,7 @@ const Login: React.FC = () => {
         <div className="relative h-screen">
             <img
                 className="absolute inset-0 h-full w-full object-cover"
-                src={BG_URL}  // Add your background image URL here
+                src={BG_URL}
                 alt="Background"
             />
             <div className="absolute top-1/3 left-1/2 transform -translate-x-1/2 w-full max-w-sm bg-black bg-opacity-80 p-8 rounded-lg text-white">
@@ -139,8 +139,8 @@ const Login: React.FC = () => {
                     onClick={toggleSignInForm}
                 >
                     {isSignInForm
-                        ? "New to Roadmap.ai? Sign Up Now"
-                        : "Already registered? Sign In Now"}
+                        ? "New to Quiz.? Sign Up Now"
+                        : "Already registered? Sign In Now :)"}
                 </p>
             </div>
         </div>

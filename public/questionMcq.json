@@ -1,0 +1,76 @@
+
+{
+    "react": [
+      {
+        "id": 1,
+        "question": "What is JSX?",
+        "options": [
+          "JavaScript XML",
+          "JavaScript Extension",
+          "JSON-like Syntax",
+          "Java Syntax"
+        ],
+        "correctAnswer": "JavaScript XML"
+      },
+      {
+        "id": 2,
+        "question": "What is the purpose of useState in React?",
+        "options": [
+          "Manage global state",
+          "Manage local state",
+          "Make HTTP requests",
+          "Handle CSS styles"
+        ],
+        "correctAnswer": "Manage local state"
+      }
+    ],
+    "nextjs": [
+      {
+        "id": 1,
+        "question": "What is the default file for creating dynamic routes in Next.js?",
+        "options": [
+          "[id].jsx",
+          "_app.jsx",
+          "routes.jsx",
+          "index.jsx"
+        ],
+        "correctAnswer": "[id].jsx"
+      },
+      {
+        "id": 2,
+        "question": "What command starts a Next.js development server?",
+        "options": [
+          "npm start",
+          "next dev",
+          "npm run serve",
+          "next build"
+        ],
+        "correctAnswer": "next dev"
+      }
+    ],
+    "git": [
+      {
+        "id": 1,
+        "question": "What command initializes a new Git repository?",
+        "options": [
+          "git init",
+          "git create",
+          "git repo",
+          "git start"
+        ],
+        "correctAnswer": "git init"
+      },
+      {
+        "id": 2,
+        "question": "What is the purpose of 'git pull'?",
+        "options": [
+          "Push local changes to the remote repository",
+          "Fetch and merge changes from the remote repository",
+          "Initialize a new Git repository",
+          "View commit history"
+        ],
+        "correctAnswer": "Fetch and merge changes from the remote repository"
+      }
+    ]
+  }
+  
