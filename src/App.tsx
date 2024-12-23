@@ -1,13 +1,13 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 import { useAuth } from "./context/AuthProvider"; // Import Auth context
 import Header from "./components/Header";
-
 import QuizApp from "./components/QuizApp";
 import QuizTopics from "./components/QuizTopics";
 import QuizContainer from "./components/QuizContainer";
 import Login from "./components/LoginPage";
 import McqQuizTopics from "./components/McqQuizTopic";
+import HomeTopics from "./components/HomeTopics"; // Import the HomeTopics component
 
 const App: React.FC = () => {
   const { user, loading } = useAuth(); // Get user and loading from AuthProvider
@@ -20,17 +20,24 @@ const App: React.FC = () => {
     <Router>
       {user && <Header />} {/* Show Header only if user is logged in */}
       <Routes>
-        {!user ? (
-          // Routes for non-logged-in users
-          <Route path="*" element={<Login />} />
-        ) : (
-          // Routes for logged-in users
+        {/* Public Routes */}
+        {!user && (
           <>
+            <Route path="/login" element={<Login />} />
+            <Route path="*" element={<Navigate to="/login" replace />} />
+          </>
+        )}
+
+        {/* Protected Routes */}
+        {user && (
+          <>
+            <Route path="/" element={<Navigate to="/home" replace />} />
+            <Route path="/home" element={<HomeTopics />} /> {/* Add HomeTopics */}
             <Route path="/mquiz" element={<McqQuizTopics />} />
             <Route path="/mcqquiz/:topic" element={<QuizContainer />} />
-            <Route path="/" element={<QuizTopics />} />
-            <Route path="/home" element={<QuizTopics />} />
             <Route path="/quiz/:category" element={<QuizApp />} />
+            <Route path="/topics" element={<QuizTopics />} />
+            <Route path="*" element={<Navigate to="/home" replace />} />
           </>
         )}
       </Routes>

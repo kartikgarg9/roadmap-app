@@ -88,7 +88,7 @@ const QuizApp: React.FC = () => {
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-6">
       <div className="flex w-full max-w-3xl flex-col items-center space-y-6">
         <div className="w-full flex justify-start mb-1">
-          <Link to="/home" className="text-blue-500 hover:underline text-lg flex items-center">
+          <Link to="/topics" className="text-blue-500 hover:underline text-lg flex items-center">
             {"<"} Back to Questions
           </Link>
         </div>

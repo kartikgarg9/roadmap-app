@@ -10,8 +10,7 @@ const MCQProgress: React.FC<MCQProgressProps> = ({
     currentQuestionIndex,
     totalQuestions,
 }) => {
-    // Calculate progress percentage
-    const progressPercent = ((currentQuestionIndex + 1) / totalQuestions) * 100;
+    const progressPercent = (currentQuestionIndex / totalQuestions) * 100;
 
     return (
         <div className="flex flex-col items-center w-full p-4">
@@ -21,12 +20,15 @@ const MCQProgress: React.FC<MCQProgressProps> = ({
 
             <Progress
                 percent={progressPercent}
-                showInfo
+                showInfo={false} // Hide default info to show our custom text
                 strokeColor={{
-                    "0%": "#ff4d4f", // Start color
-                    "100%": "#52c41a", // End color
+                    "0%": "#ff4d4f",
+                    "100%": "#52c41a",
                 }}
             />
+            <div className="text-center mt-2">
+                <span>{Math.round(progressPercent)}% Complete</span>
+            </div>
         </div>
     );
 };
