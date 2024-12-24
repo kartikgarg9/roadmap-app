@@ -1,76 +1,674 @@
-
 {
-    "react": [
-      {
-        "id": 1,
-        "question": "What is JSX?",
-        "options": [
-          "JavaScript XML",
-          "JavaScript Extension",
-          "JSON-like Syntax",
-          "Java Syntax"
-        ],
-        "correctAnswer": "JavaScript XML"
-      },
-      {
-        "id": 2,
-        "question": "What is the purpose of useState in React?",
-        "options": [
-          "Manage global state",
-          "Manage local state",
-          "Make HTTP requests",
-          "Handle CSS styles"
-        ],
-        "correctAnswer": "Manage local state"
-      }
-    ],
-    "nextjs": [
-      {
-        "id": 1,
-        "question": "What is the default file for creating dynamic routes in Next.js?",
-        "options": [
-          "[id].jsx",
-          "_app.jsx",
-          "routes.jsx",
-          "index.jsx"
-        ],
-        "correctAnswer": "[id].jsx"
-      },
-      {
-        "id": 2,
-        "question": "What command starts a Next.js development server?",
-        "options": [
-          "npm start",
-          "next dev",
-          "npm run serve",
-          "next build"
-        ],
-        "correctAnswer": "next dev"
-      }
-    ],
-    "git": [
-      {
-        "id": 1,
-        "question": "What command initializes a new Git repository?",
-        "options": [
-          "git init",
-          "git create",
-          "git repo",
-          "git start"
-        ],
-        "correctAnswer": "git init"
-      },
-      {
-        "id": 2,
-        "question": "What is the purpose of 'git pull'?",
-        "options": [
-          "Push local changes to the remote repository",
-          "Fetch and merge changes from the remote repository",
-          "Initialize a new Git repository",
-          "View commit history"
-        ],
-        "correctAnswer": "Fetch and merge changes from the remote repository"
-      }
-    ]
-  }
-  
+  "react": [
+    {
+      "id": 1,
+      "question": "What is JSX?",
+      "options": [
+        "JavaScript XML",
+        "JavaScript Extension",
+        "JSON-like Syntax",
+        "Java Syntax"
+      ],
+      "correctAnswer": "JavaScript XML"
+    },
+    {
+      "id": 2,
+      "question": "What is the purpose of useState in React?",
+      "options": [
+        "Manage global state",
+        "Manage local state",
+        "Make HTTP requests",
+        "Handle CSS styles"
+      ],
+      "correctAnswer": "Manage local state"
+    },
+    {
+      "id": 3,
+      "question": "What is the purpose of useEffect in React?",
+      "options": [
+        "Fetch data from an API",
+        "Manage form submissions",
+        "Execute side effects after render",
+        "Handle button clicks"
+      ],
+      "correctAnswer": "Execute side effects after render"
+    },
+    {
+      "id": 4,
+      "question": "Which of the following is used to pass data between components in React?",
+      "options": [
+        "Props",
+        "State",
+        "Reducer",
+        "Context"
+      ],
+      "correctAnswer": "Props"
+    },
+    {
+      "id": 5,
+      "question": "What is the primary purpose of React Router?",
+      "options": [
+        "To fetch data from APIs",
+        "To manage component state",
+        "To handle routing and navigation",
+        "To style components"
+      ],
+      "correctAnswer": "To handle routing and navigation"
+    },
+    {
+      "id": 6,
+      "question": "What is a higher-order component in React?",
+      "options": [
+        "A component that renders another component",
+        "A function that takes a component and returns a new component",
+        "A function that modifies the component's state",
+        "A way to pass props to components"
+      ],
+      "correctAnswer": "A function that takes a component and returns a new component"
+    },
+    {
+      "id": 7,
+      "question": "Which hook is used to manage component lifecycle in React?",
+      "options": [
+        "useEffect",
+        "useState",
+        "useReducer",
+        "useCallback"
+      ],
+      "correctAnswer": "useEffect"
+    },
+    {
+      "id": 8,
+      "question": "What is the purpose of the useContext hook?",
+      "options": [
+        "To manage state",
+        "To provide context to nested components",
+        "To make HTTP requests",
+        "To style components"
+      ],
+      "correctAnswer": "To provide context to nested components"
+    },
+    {
+      "id": 9,
+      "question": "What is a functional component in React?",
+      "options": [
+        "A component that is written as a function",
+        "A component that uses hooks",
+        "A component that manages local state",
+        "A component that contains only logic"
+      ],
+      "correctAnswer": "A component that is written as a function"
+    },
+    {
+      "id": 10,
+      "question": "What is the difference between class components and functional components in React?",
+      "options": [
+        "Class components are for managing state, functional components are not",
+        "Functional components are more efficient than class components",
+        "Class components have a constructor, functional components do not",
+        "Functional components use JSX, class components do not"
+      ],
+      "correctAnswer": "Functional components are more efficient than class components"
+    }
+  ],
+  "nodejs": [
+    {
+      "id": 1,
+      "question": "Which method is used to create a new server in Node.js?",
+      "options": [
+        "http.createServer()",
+        "server.create()",
+        "node.createServer()",
+        "server.start()"
+      ],
+      "correctAnswer": "http.createServer()"
+    },
+    {
+      "id": 2,
+      "question": "What is the purpose of the 'fs' module in Node.js?",
+      "options": [
+        "File system operations",
+        "Managing HTTP requests",
+        "Handling network requests",
+        "Running JavaScript code"
+      ],
+      "correctAnswer": "File system operations"
+    },
+    {
+      "id": 3,
+      "question": "Which method is used to read a file asynchronously in Node.js?",
+      "options": [
+        "fs.readFileSync()",
+        "fs.readFile()",
+        "fs.openFile()",
+        "fs.open()"
+      ],
+      "correctAnswer": "fs.readFile()"
+    },
+    {
+      "id": 4,
+      "question": "What does 'npm init' do in a Node.js project?",
+      "options": [
+        "Initializes a new Node.js project",
+        "Installs dependencies",
+        "Creates a new Node.js server",
+        "Compiles Node.js code"
+      ],
+      "correctAnswer": "Initializes a new Node.js project"
+    },
+    {
+      "id": 5,
+      "question": "Which framework is commonly used with Node.js for web development?",
+      "options": [
+        "Express",
+        "React",
+        "Vue",
+        "Django"
+      ],
+      "correctAnswer": "Express"
+    },
+    {
+      "id": 6,
+      "question": "How do you start a Node.js application?",
+      "options": [
+        "node app.js",
+        "npm start",
+        "npm run app",
+        "node start"
+      ],
+      "correctAnswer": "node app.js"
+    },
+    {
+      "id": 7,
+      "question": "What is the purpose of 'require' in Node.js?",
+      "options": [
+        "To import modules",
+        "To define variables",
+        "To create classes",
+        "To make HTTP requests"
+      ],
+      "correctAnswer": "To import modules"
+    },
+    {
+      "id": 8,
+      "question": "Which module is used for making HTTP requests in Node.js?",
+      "options": [
+        "http",
+        "express",
+        "request",
+        "axios"
+      ],
+      "correctAnswer": "http"
+    },
+    {
+      "id": 9,
+      "question": "What is middleware in Express?",
+      "options": [
+        "Functions that have access to the request and response objects",
+        "Code that handles errors",
+        "Database queries in Express",
+        "Request handlers in Express"
+      ],
+      "correctAnswer": "Functions that have access to the request and response objects"
+    },
+    {
+      "id": 10,
+      "question": "What is the use of the 'next' function in Express?",
+      "options": [
+        "Pass control to the next middleware",
+        "Create a new route",
+        "Initialize the server",
+        "Send a response"
+      ],
+      "correctAnswer": "Pass control to the next middleware"
+    }
+  ],
+  "javascript": [
+    {
+      "id": 1,
+      "question": "What does 'var' do in JavaScript?",
+      "options": [
+        "Declares a variable",
+        "Defines a function",
+        "Initializes an array",
+        "Creates an object"
+      ],
+      "correctAnswer": "Declares a variable"
+    },
+    {
+      "id": 2,
+      "question": "What is the difference between '==' and '===' in JavaScript?",
+      "options": [
+        "'==' compares values, '===' compares values and types",
+        "'==' compares types, '===' compares values",
+        "'==' compares values only",
+        "'===' compares types only"
+      ],
+      "correctAnswer": "'==' compares values, '===' compares values and types"
+    },
+    {
+      "id": 3,
+      "question": "What is a closure in JavaScript?",
+      "options": [
+        "A function that retains access to its lexical scope",
+        "A function that is executed immediately",
+        "A function that is called recursively",
+        "A function with no return value"
+      ],
+      "correctAnswer": "A function that retains access to its lexical scope"
+    },
+    {
+      "id": 4,
+      "question": "Which of the following is used to handle asynchronous code in JavaScript?",
+      "options": [
+        "Promises",
+        "Loops",
+        "Callbacks",
+        "All of the above"
+      ],
+      "correctAnswer": "All of the above"
+    },
+    {
+      "id": 5,
+      "question": "What is the purpose of the 'this' keyword in JavaScript?",
+      "options": [
+        "Refers to the current object",
+        "Refers to the global object",
+        "Refers to the previous function",
+        "Refers to the current function"
+      ],
+      "correctAnswer": "Refers to the current object"
+    },
+    {
+      "id": 6,
+      "question": "What is an event loop in JavaScript?",
+      "options": [
+        "A mechanism that handles asynchronous operations",
+        "A loop that runs only once",
+        "A method to call events",
+        "A loop used to check errors"
+      ],
+      "correctAnswer": "A mechanism that handles asynchronous operations"
+    },
+    {
+      "id": 7,
+      "question": "What is the use of 'let' in JavaScript?",
+      "options": [
+        "To declare a block-scoped variable",
+        "To declare a global variable",
+        "To create a constant",
+        "To define a function"
+      ],
+      "correctAnswer": "To declare a block-scoped variable"
+    },
+    {
+      "id": 8,
+      "question": "What is 'undefined' in JavaScript?",
+      "options": [
+        "A value indicating that a variable has been declared but not assigned a value",
+        "A data type",
+        "A method for defining functions",
+        "A function to handle errors"
+      ],
+      "correctAnswer": "A value indicating that a variable has been declared but not assigned a value"
+    },
+    {
+      "id": 9,
+      "question": "What is the 'Array.prototype.map()' method used for?",
+      "options": [
+        "To apply a function on each element of an array",
+        "To create a new array",
+        "To merge two arrays",
+        "To check if all elements are true"
+      ],
+      "correctAnswer": "To apply a function on each element of an array"
+    },
+    {
+      "id": 10,
+      "question": "Which of the following are falsy values in JavaScript?",
+      "options": [
+        "false, 0, '', null, undefined, NaN",
+        "true, 1, 'string'",
+        "0, undefined, NaN",
+        "null, NaN, 'false'"
+      ],
+      "correctAnswer": "false, 0, '', null, undefined, NaN"
+    }
+  ],
+  "frontend": [
+    {
+      "id": 1,
+      "question": "What is the purpose of the <div> tag in HTML?",
+      "options": [
+        "Defines a division or section in the page",
+        "Defines a hyperlink",
+        "Defines a paragraph",
+        "Defines a form"
+      ],
+      "correctAnswer": "Defines a division or section in the page"
+    },
+    {
+      "id": 2,
+      "question": "Which property is used to change the font size in CSS?",
+      "options": [
+        "font-size",
+        "text-size",
+        "font",
+        "size"
+      ],
+      "correctAnswer": "font-size"
+    },
+    {
+      "id": 3,
+      "question": "Which CSS selector is used to select elements by their class name?",
+      "options": [
+        ".classname",
+        "#classname",
+        "classname",
+        ".idname"
+      ],
+      "correctAnswer": ".classname"
+    },
+    {
+      "id": 4,
+      "question": "What is the purpose of the 'box-sizing' CSS property?",
+      "options": [
+        "Defines how the width and height of elements are calculated",
+        "Sets the margins of an element",
+        "Controls the color of elements",
+        "Determines the position of elements"
+      ],
+      "correctAnswer": "Defines how the width and height of elements are calculated"
+    },
+    {
+      "id": 5,
+      "question": "What does the 'z-index' property control in CSS?",
+      "options": [
+        "The stacking order of elements",
+        "The font size of elements",
+        "The visibility of elements",
+        "The opacity of elements"
+      ],
+      "correctAnswer": "The stacking order of elements"
+    },
+    {
+      "id": 6,
+      "question": "What is the purpose of a responsive design?",
+      "options": [
+        "To create web pages that adapt to different screen sizes",
+        "To add animations",
+        "To reduce page load time",
+        "To optimize SEO"
+      ],
+      "correctAnswer": "To create web pages that adapt to different screen sizes"
+    },
+    {
+      "id": 7,
+      "question": "Which attribute is used to specify the source of an image in HTML?",
+      "options": [
+        "src",
+        "href",
+        "alt",
+        "link"
+      ],
+      "correctAnswer": "src"
+    },
+    {
+      "id": 8,
+      "question": "What does 'CSS Flexbox' do?",
+      "options": [
+        "Provides a way to align elements in a container",
+        "Controls the font size of elements",
+        "Defines the layout of text",
+        "Manages the page background"
+      ],
+      "correctAnswer": "Provides a way to align elements in a container"
+    },
+    {
+      "id": 9,
+      "question": "What is the purpose of the <a> tag in HTML?",
+      "options": [
+        "Defines a hyperlink",
+        "Defines a form",
+        "Defines a section",
+        "Defines an image"
+      ],
+      "correctAnswer": "Defines a hyperlink"
+    },
+    {
+      "id": 10,
+      "question": "Which HTML5 element is used to define navigation links?",
+      "options": [
+        "<nav>",
+        "<header>",
+        "<footer>",
+        "<main>"
+      ],
+      "correctAnswer": "<nav>"
+    }
+  ],
+  "backend": [
+    {
+      "id": 1,
+      "question": "What is the purpose of Express in Node.js?",
+      "options": [
+        "To create web servers",
+        "To interact with databases",
+        "To manage the file system",
+        "To make HTTP requests"
+      ],
+      "correctAnswer": "To create web servers"
+    },
+    {
+      "id": 2,
+      "question": "Which HTTP method is used to send data to the server?",
+      "options": [
+        "POST",
+        "GET",
+        "DELETE",
+        "PUT"
+      ],
+      "correctAnswer": "POST"
+    },
+    {
+      "id": 3,
+      "question": "What is the purpose of the 'mongoose' library?",
+      "options": [
+        "To interact with MongoDB",
+        "To handle HTTP requests",
+        "To manage Express routing",
+        "To handle file uploads"
+      ],
+      "correctAnswer": "To interact with MongoDB"
+    },
+    {
+      "id": 4,
+      "question": "What is a RESTful API?",
+      "options": [
+        "An API based on HTTP methods and stateless communication",
+        "An API that uses WebSockets",
+        "An API that interacts with databases directly",
+        "An API that communicates via FTP"
+      ],
+      "correctAnswer": "An API based on HTTP methods and stateless communication"
+    },
+    {
+      "id": 5,
+      "question": "What is CORS (Cross-Origin Resource Sharing)?",
+      "options": [
+        "A security feature to restrict cross-origin requests",
+        "A web hosting service",
+        "A method to authenticate users",
+        "A way to encrypt data"
+      ],
+      "correctAnswer": "A security feature to restrict cross-origin requests"
+    },
+    {
+      "id": 6,
+      "question": "Which of the following is used to parse incoming request bodies in Express?",
+      "options": [
+        "express.json()",
+        "body-parser",
+        "express.urlencoded()",
+        "json-parse"
+      ],
+      "correctAnswer": "express.json()"
+    },
+    {
+      "id": 7,
+      "question": "Which method is used to send a response to the client in Express?",
+      "options": [
+        "res.send()",
+        "res.json()",
+        "res.sendFile()",
+        "All of the above"
+      ],
+      "correctAnswer": "All of the above"
+    },
+    {
+      "id": 8,
+      "question": "What is the purpose of middleware in Express?",
+      "options": [
+        "To add functionality such as logging and error handling",
+        "To route requests to different controllers",
+        "To send responses to clients",
+        "To interact with databases"
+      ],
+      "correctAnswer": "To add functionality such as logging and error handling"
+    },
+    {
+      "id": 9,
+      "question": "What is the purpose of a database index?",
+      "options": [
+        "To improve query performance",
+        "To store data securely",
+        "To validate data integrity",
+        "To manage user authentication"
+      ],
+      "correctAnswer": "To improve query performance"
+    },
+    {
+      "id": 10,
+      "question": "What is SQL injection?",
+      "options": [
+        "A method of attacking a database through unsanitized input",
+        "A way to optimize queries",
+        "A method of database backup",
+        "A database indexing technique"
+      ],
+      "correctAnswer": "A method of attacking a database through unsanitized input"
+    }
+  ],
+  "devops": [
+    {
+      "id": 1,
+      "question": "What is the purpose of Docker?",
+      "options": [
+        "To containerize applications for easy deployment",
+        "To automate software testing",
+        "To manage databases",
+        "To deploy code to production"
+      ],
+      "correctAnswer": "To containerize applications for easy deployment"
+    },
+    {
+      "id": 2,
+      "question": "Which version control system is widely used in DevOps?",
+      "options": [
+        "Git",
+        "SVN",
+        "Mercurial",
+        "Bazaar"
+      ],
+      "correctAnswer": "Git"
+    },
+    {
+      "id": 3,
+      "question": "What is the purpose of CI/CD in DevOps?",
+      "options": [
+        "Automate the integration and deployment of code",
+        "Automate database management",
+        "Automate testing only",
+        "Automate server management"
+      ],
+      "correctAnswer": "Automate the integration and deployment of code"
+    },
+    {
+      "id": 4,
+      "question": "What is Kubernetes used for?",
+      "options": [
+        "Orchestrating containerized applications",
+        "Managing databases",
+        "Deploying code to production",
+        "Monitoring application performance"
+      ],
+      "correctAnswer": "Orchestrating containerized applications"
+    },
+    {
+      "id": 5,
+      "question": "What is the purpose of a load balancer in DevOps?",
+      "options": [
+        "Distribute network traffic evenly across servers",
+        "Monitor application performance",
+        "Store application logs",
+        "Encrypt network traffic"
+      ],
+      "correctAnswer": "Distribute network traffic evenly across servers"
+    },
+    {
+      "id": 6,
+      "question": "What does 'Infrastructure as Code' (IaC) mean?",
+      "options": [
+        "Managing infrastructure using code and automation tools",
+        "Automating application deployment",
+        "Managing databases through code",
+        "Using hardware to manage infrastructure"
+      ],
+      "correctAnswer": "Managing infrastructure using code and automation tools"
+    },
+    {
+      "id": 7,
+      "question": "Which of the following is a popular tool for monitoring applications in DevOps?",
+      "options": [
+        "Prometheus",
+        "Jenkins",
+        "Terraform",
+        "Docker Compose"
+      ],
+      "correctAnswer": "Prometheus"
+    },
+    {
+      "id": 8,
+      "question": "What is the purpose of Terraform in DevOps?",
+      "options": [
+        "Provisioning and managing cloud infrastructure",
+        "Automating software testing",
+        "Building container images",
+        "Managing database backups"
+      ],
+      "correctAnswer": "Provisioning and managing cloud infrastructure"
+    },
+    {
+      "id": 9,
+      "question": "What is the main advantage of using Microservices in DevOps?",
+      "options": [
+        "Scalability and flexibility in development and deployment",
+        "Faster build times",
+        "Simpler codebase",
+        "Less resource consumption"
+      ],
+      "correctAnswer": "Scalability and flexibility in development and deployment"
+    },
+    {
+      "id": 10,
+      "question": "What is the purpose of Jenkins in DevOps?",
+      "options": [
+        "Continuous integration and continuous delivery automation",
+        "Database management",
+        "Cloud infrastructure provisioning",
+        "Monitoring application performance"
+      ],
+      "correctAnswer": "Continuous integration and continuous delivery automation"
+    }
+  ]
+}

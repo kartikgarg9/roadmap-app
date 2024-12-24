@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const McqQuizTopics: React.FC = () => {
     const topics = [
         { title: "React MCQ", questions: 50, topics: 10, link: "/mcqquiz/react" },
-        { title: "Node.js MCQ", questions: 40, topics: 8, link: "/mcqquiz/node" },
+        { title: "Node.js MCQ", questions: 40, topics: 8, link: "/mcqquiz/nodejs" },
         { title: "JavaScript MCQ", questions: 75, topics: 12, link: "/mcqquiz/javascript" },
         { title: "Frontend MCQ", questions: 30, topics: 5, link: "/mcqquiz/frontend" },
         { title: "Backend MCQ", questions: 45, topics: 7, link: "/mcqquiz/backend" },
