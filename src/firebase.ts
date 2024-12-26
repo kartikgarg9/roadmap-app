@@ -2,14 +2,15 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
 
+// Use the environment variables injected by Vite
 const firebaseConfig = {
-    apiKey: "AIzaSyCy7nlOchPCN-rV-Z8Zr_VbswFSztru4-o",
-    authDomain: "roadmap-developer.firebaseapp.com",
-    projectId: "roadmap-developer",
-    storageBucket: "roadmap-developer.firebasestorage.app",
-    messagingSenderId: "736828172850",
-    appId: "1:736828172850:web:915eb5ad537f2c62eeea2b"
-  };
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+};
 
 const app = initializeApp(firebaseConfig);
 
