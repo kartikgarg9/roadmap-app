@@ -7,7 +7,9 @@ import QuizTopics from "./components/QuizTopics";
 import QuizContainer from "./components/QuizContainer";
 import Login from "./components/LoginPage";
 import McqQuizTopics from "./components/McqQuizTopic";
-import HomeTopics from "./components/HomeTopics"; // Import the HomeTopics component
+import HomeTopics from "./components/HomeTopics";
+import StudyMaterialPage from "./components/StudyMaterialPage";
+import StudyMaterialTopics from "./components/StudyMaterialTopics";
 
 const App: React.FC = () => {
   const { user, loading } = useAuth(); // Get user and loading from AuthProvider
@@ -37,6 +39,9 @@ const App: React.FC = () => {
             <Route path="/mcqquiz/:topic" element={<QuizContainer />} />
             <Route path="/quiz/:category" element={<QuizApp />} />
             <Route path="/topics" element={<QuizTopics />} />
+            <Route path="/study-material" element={<StudyMaterialTopics />} />
+            <Route path="/study-material/:topicId" element={<StudyMaterialPage />} />
+
             <Route path="*" element={<Navigate to="/home" replace />} />
           </>
         )}
