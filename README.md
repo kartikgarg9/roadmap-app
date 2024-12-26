@@ -40,3 +40,53 @@ To run the project locally:
 1. Clone the repository:
    ```bash
    git clone https://github.com/kartikgarg9/roadmap-app.git
+Navigate to the project directory:
+
+bash
+Copy code
+cd prepApp
+Install dependencies:
+
+bash
+Copy code
+npm install
+Start the development server:
+
+bash
+Copy code
+npm run dev
+The app will be available at http://localhost:3000 (or another port if specified).
+
+Technologies Used
+Frontend: React.js, Vite
+Backend: Node.js, Express
+Database: Firebase Firestore
+Authentication: Firebase Authentication
+Contributing
+We welcome contributions to improve the project! To contribute:
+
+Fork the repository.
+Create a new branch (git checkout -b feature-branch).
+Make your changes.
+Commit your changes (git commit -am 'Add new feature').
+Push to the branch (git push origin feature-branch).
+Create a new Pull Request.
+License
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+Contact
+For any queries, feel free to reach out or open an issue on GitHub.
+
+Thank you for using PrepApp!
+
+
+### Key Sections in the README:
+1. **Study Material**: Describes the study material section, explaining its structure and coverage.
+2. **MCQ Quiz**: Explains the MCQ quiz feature, its purpose, and how it tests knowledge.
+3. **Learning Quiz**: Describes the learning quiz feature and how it helps users learn interactively.
+4. **Chatbox**: Highlights the integrated chatbox for query resolution.
+5. **Installation Instructions**: Provides clear steps for setting up the app locally.
+6. **Technologies Used**: Lists the key technologies that power the app.
+7. **Contributing**: Encourages others to contribute and describes how they can do so.
+8. **License**: Mentions the license under which the project is shared.
+
