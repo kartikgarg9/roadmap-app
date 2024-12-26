@@ -1,50 +1,42 @@
-# React + TypeScript + Vite
+# PrepApp
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+PrepApp is an interactive platform designed to help you learn and test your knowledge on various technologies. It includes study material for different technologies, a MCQ quiz to test your understanding, and a Learning Quiz feature to reinforce your learning. Additionally, it offers a chatbox feature with study material to assist you in solving queries.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 1. **Study Material**
+- Explore comprehensive study material for various technologies.
+- The study material is organized by topic, making it easy to reference when you need to learn about new concepts or refresh your knowledge.
+- Technologies covered include but are not limited to:
+  - JavaScript
+  - Python
+  - React
+  - Node.js
+  - Firebase
+  - And more...
 
-## Expanding the ESLint configuration
+### 2. **MCQ Quiz**
+- Test your knowledge with a series of Multiple Choice Questions (MCQs).
+- The quiz is designed to assess your understanding of key concepts from the study material.
+- It’s a great way to prepare for exams or simply gauge your current knowledge on different subjects.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### 3. **Learning Quiz**
+- Engage in a learning quiz that combines both testing and learning.
+- It helps reinforce concepts as you go, offering explanations and insights for each question answered.
+- This feature makes learning more interactive and allows you to monitor your progress while understanding the material.
 
-- Configure the top-level `parserOptions` property like this:
+### 4. **Chatbox for Study Material**
+- A unique feature where you can ask questions about the study material and get instant responses.
+- The chatbox assists you in clarifying doubts and solving queries related to the technologies you are learning.
+- This feature is integrated with the study material, making it easier to learn and get help on-demand.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Current Status
+This project is **in progress**. We're continuously adding new features and expanding the content. Stay tuned for more updates!
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Installation
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+To run the project locally:
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/kartikgarg9/roadmap-app.git
