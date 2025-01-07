@@ -4,7 +4,7 @@ import ChatBox from "./ChatBox";
 import CodeMirror from '@uiw/react-codemirror';  // default import
 import { javascript } from '@codemirror/lang-javascript';
 import { oneDark } from '@codemirror/theme-one-dark';  // or any other theme
-
+import Markdown from 'react-markdown'
 import "./StudyMaterialPage.css";
 
 interface StudyMaterial {
@@ -62,22 +62,9 @@ const StudyMaterialPage: React.FC = () => {
     }
 
     // Split content and insert code block where appropriate
-    const contentWithCode = studyMaterial.content.split("\n").map((line, index) => {
-        if (line.startsWith("```javascript")) {
-            return (
-                <div key={index} className="code-container">
-                    <CodeMirror
-                        value={studyMaterial.codeExample}
-                        height="200px"
-                        extensions={[javascript()]}
-                        theme={oneDark}
-                        editable={false}
-                    />
-                </div>
-            );
-        }
-        return <p key={index}>{line}</p>;
-    });
+    const beforeCodeContent = studyMaterial.content.split("```")[0];
+    const codeContent = studyMaterial.content.split("```")[1];
+    const after = studyMaterial.content.split("```")[2]
 
     return (
         <div className="study-material-container">
@@ -86,7 +73,21 @@ const StudyMaterialPage: React.FC = () => {
             </button>
             <h1 className="study-title">{studyMaterial.title}</h1>
             <div className="study-content">
-                {contentWithCode}
+                <Markdown>
+                    {beforeCodeContent}
+                </Markdown>
+                <div key={1} className="code-container">
+                    <CodeMirror
+                        value={codeContent}
+                        height="200px"
+                        extensions={[javascript()]}
+                        theme={oneDark}
+                        editable={false}
+                    />
+                </div>
+                <Markdown>
+                    {after}
+                </Markdown>
             </div>
 
             <ChatBox topicContent={studyMaterial.content} />
